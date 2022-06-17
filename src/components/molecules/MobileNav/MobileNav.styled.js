@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
   top: 120px;
   right: 0;
   transform-origin: top;
-  transform: ${({ isOpen }) => (isOpen ? "scaleY(0)" : "scaleY(1)")};
+  transform: ${({ isOpen }) => (isOpen ? "scaleY(1)" : "scaleY(0)")};
 `;
 
 export const StyledLink = styled(NavLink)`

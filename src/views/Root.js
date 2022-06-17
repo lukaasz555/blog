@@ -11,7 +11,7 @@ import Contact from "./Contact";
 import Blog from "./Blog";
 
 const Root = () => {
-  const [isOpen, setOpen] = useState(true);
+  const [isOpen, setOpen] = useState(false);
 
   const showMobileNav = () => {
     setOpen(!isOpen);
