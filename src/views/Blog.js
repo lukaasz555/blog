@@ -8,13 +8,12 @@ const Wrapper = styled.div`
   text-align: left;
 `;
 
-const Blog = () => {
+const Blog = ({ arts }) => {
   return (
     <Wrapper>
-      <Article />
-      <Article />
-      {/*       <StyledArticle as="section" />
-      <StyledArticle as="section" /> */}
+      {arts.map((article) => (
+        <Article title={article.title} key={article.id} short={article.short} />
+      ))}
     </Wrapper>
   );
 };

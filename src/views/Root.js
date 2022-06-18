@@ -9,6 +9,7 @@ import { Wrapper, StyledMain } from "views/Root.styled";
 import About from "./About";
 import Contact from "./Contact";
 import Blog from "./Blog";
+import { articles } from "data/data";
 
 const Root = () => {
   const [isOpen, setOpen] = useState(false);
@@ -35,7 +36,7 @@ const Root = () => {
               />
               <MobileNav isOpen={isOpen} onClick={handleHideNav}></MobileNav>
               <Routes>
-                <Route path="/" element={<Blog />} />
+                <Route path="/" element={<Blog />} arts={articles} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
               </Routes>

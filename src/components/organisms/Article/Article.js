@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { articles } from "data/data";
+/* import { articles } from "data/data"; */
 
 const StyledArticle = styled.article`
   width: 100%;
@@ -26,6 +26,7 @@ const StyledButton = styled.button`
   position: relative;
   align-self: flex-end;
   margin: 30px 50px 30px 0;
+  border-radius: 4px;
 
   &::after {
     content: "";
@@ -45,14 +46,12 @@ const StyledButton = styled.button`
   }
 `;
 
-const Article = () => {
-  return (
-    <StyledArticle>
-      <h3>asdf {articles[0].title}</h3>
-      <p>{articles[0].short}</p>
-      <StyledButton>read more</StyledButton>
-    </StyledArticle>
-  );
-};
+const Article = ({ title, short, key }) => (
+  <StyledArticle>
+    <h3>{title}</h3>
+    <p> {short}</p>
+    <StyledButton>read more</StyledButton>
+  </StyledArticle>
+);
 
 export default Article;
