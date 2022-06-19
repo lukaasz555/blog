@@ -10,6 +10,7 @@ import About from "./About";
 import Contact from "./Contact";
 import Blog from "./Blog";
 import { articles } from "data/data";
+import DesktopNav from "components/molecules/DesktopNav/DesktopNav";
 
 const Root = () => {
   const [isOpen, setOpen] = useState(false);
@@ -35,6 +36,7 @@ const Root = () => {
                 onClick={showMobileNav}
               />
               <MobileNav isOpen={isOpen} onClick={handleHideNav}></MobileNav>
+              <DesktopNav />
               <Routes>
                 <Route path="/" element={<Blog articles={articles} />} />
                 <Route path="/about" element={<About />} />

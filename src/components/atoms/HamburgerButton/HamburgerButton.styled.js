@@ -37,4 +37,8 @@ export const StyledButton = styled.button`
         isOpen ? "translateY(-50%) rotate(45deg)" : "rotate(0)"};
     }
   }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;
