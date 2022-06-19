@@ -36,7 +36,7 @@ const Root = () => {
               />
               <MobileNav isOpen={isOpen} onClick={handleHideNav}></MobileNav>
               <Routes>
-                <Route path="/" element={<Blog />} arts={articles} />
+                <Route path="/" element={<Blog articles={articles} />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
               </Routes>

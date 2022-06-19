@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Article from "components/organisms/Article/Article";
+import PropTypes from "prop-types";
 
 const Wrapper = styled.div`
   width: 90%;
@@ -8,14 +9,18 @@ const Wrapper = styled.div`
   text-align: left;
 `;
 
-const Blog = ({ arts }) => {
+const Blog = ({ articles }) => {
   return (
     <Wrapper>
-      {arts.map((article) => (
-        <Article title={article.title} key={article.id} short={article.short} />
+      {articles.map((art) => (
+        <Article title={art.title} short={art.short} key={art.id} />
       ))}
     </Wrapper>
   );
+};
+
+Blog.propTypes = {
+  articles: PropTypes.arrayOf(),
 };
 
 export default Blog;
