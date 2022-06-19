@@ -11,7 +11,7 @@ export const StyledButton = styled.button`
   letter-spacing: 2px;
   position: relative;
   align-self: center;
-  margin: 10px 50px 25px 0;
+  margin: 10px auto 30px;
   border-radius: 4px;
   transition: color 0.15s, background-color 0.15s;
 
@@ -39,5 +39,6 @@ export const StyledButton = styled.button`
 
   @media (min-width: 768px) {
     align-self: flex-end;
+    margin: 10px 50px 25px 0;
   }
 `;
