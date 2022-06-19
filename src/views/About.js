@@ -15,6 +15,9 @@ const Wrapper = styled.div`
     float: left;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
     margin-top: 20px;
+    @media (max-width: 768px) {
+      margin-bottom: 15px;
+    }
   }
 
   img,
