@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Wrapper = styled.div`
   width: 60%;
@@ -9,6 +10,12 @@ export const Wrapper = styled.div`
   justify-content: center;
   margin-left: 20px;
   color: ${({ theme }) => theme.colors.white};
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: ${({ theme }) => theme.colors.white};
+  margin-bottom: 15px;
 
   h1 {
     font-weight: 400;

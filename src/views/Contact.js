@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  background-color: royalblue;
+  /*   background-color: royalblue; */
   width: 90%;
   margin: 0 auto;
   text-align: center;
@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 const Contact = () => {
   return (
     <Wrapper>
-      <p>adres@mail.com</p>
+      <p>coming soon</p>
     </Wrapper>
   );
 };

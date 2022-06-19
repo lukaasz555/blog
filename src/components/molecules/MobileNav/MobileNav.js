@@ -9,13 +9,13 @@ const MobileNav = ({ isOpen, onClick }) => {
   return (
     <Wrapper isOpen={isOpen}>
       <StyledLink to="/" onClick={onClick}>
-        blog
+        blog<span></span>
       </StyledLink>
       <StyledLink to="/about" onClick={onClick}>
-        about
+        about<span></span>
       </StyledLink>
       <StyledLink to="/contact" onClick={onClick}>
-        contact
+        contact<span></span>
       </StyledLink>
     </Wrapper>
   );
