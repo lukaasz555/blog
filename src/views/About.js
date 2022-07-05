@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin-bottom: 60px;
 
   img {
     height: 100%;

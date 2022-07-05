@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 /* import { articles } from "data/data"; */
-import BtnReadMore from "components/atoms/BtnReadMore/BtnReadMore";
+import Button from "components/atoms/Button/Button";
 
 const StyledArticle = styled.article`
   width: 100%;
@@ -15,13 +15,39 @@ const StyledArticle = styled.article`
   }
 `;
 
-const Article = ({ title, short }) => {
+const TopWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+
+  h3 {
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  p {
+    font-size: ${({ theme }) => theme.fontSize.s};
+    transition: all 0.2s;
+  }
+
+  p:hover {
+    color: ${({ theme }) => theme.colors.blue};
+    cursor: pointer;
+  }
+`;
+
+const Article = ({ title, short, category }) => {
   return (
     <StyledArticle>
-      <h3>{title}</h3>
+      <TopWrapper>
+        <h3>{title}</h3>
+        <p>#{category}</p>
+      </TopWrapper>
       <p>{short}</p>
-
-      <BtnReadMore />
+      <Button content={"Read more"} />
     </StyledArticle>
   );
 };

@@ -30,6 +30,7 @@ export const StyledLink = styled(NavLink)`
   position: relative;
   padding-bottom: 5px;
 
+  &::after,
   &::before {
     position: absolute;
     content: "";
@@ -46,22 +47,7 @@ export const StyledLink = styled(NavLink)`
     transform: scaleX(1);
   }
 
-  span {
-    position: absolute;
-    height: 3px;
-    width: 3px;
-    border-radius: 50%;
-    background-color: ${({ theme }) => theme.colors.white};
-    left: -12px;
-    top: 50%;
-    transform: translateY(-50%);
-    visibility: none;
-    opacity: 0;
-    transition: opacity 0.5s, visibility 0.5s;
-  }
-
-  &.active > span {
-    visibility: visible;
-    opacity: 1;
+  &.active::after {
+    transform: scaleX(1);
   }
 `;

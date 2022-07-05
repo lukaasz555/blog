@@ -13,7 +13,12 @@ const Blog = ({ articles }) => {
   return (
     <Wrapper>
       {articles.map((art) => (
-        <Article title={art.title} short={art.short} key={art.id} />
+        <Article
+          title={art.title}
+          short={art.short}
+          category={art.category}
+          key={art.id}
+        />
       ))}
     </Wrapper>
   );
