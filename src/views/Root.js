@@ -15,13 +15,13 @@ import DesktopNav from "components/molecules/DesktopNav/DesktopNav";
 const Root = () => {
   const [isOpen, setOpen] = useState(false);
 
-  const showMobileNav = () => {
+  const toggleMobileNav = () => {
     setOpen(!isOpen);
   };
 
-  const handleHideNav = () => {
+  /*   const handleHideNav = () => {
     setOpen(!isOpen);
-  };
+  }; */
 
   return (
     <>
@@ -33,9 +33,9 @@ const Root = () => {
               <Header
                 isOpen={isOpen}
                 setOpen={setOpen}
-                onClick={showMobileNav}
+                onClick={toggleMobileNav}
               />
-              <MobileNav isOpen={isOpen} onClick={handleHideNav}></MobileNav>
+              <MobileNav isOpen={isOpen} onClick={toggleMobileNav}></MobileNav>
               <DesktopNav />
               <Routes>
                 <Route path="/" element={<Blog articles={articles} />} />

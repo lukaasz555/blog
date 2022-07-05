@@ -2,7 +2,8 @@ export const theme = {
   colors: {
     white: "#FFF",
     black: "#000",
-    blue: "#4059AD",
+    orange: "#FF7F11",
+    blue: "#507DBC",
   },
 
   fontSize: {

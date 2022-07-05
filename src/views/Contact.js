@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Input from "components/atoms/Input/Input";
 import { Textarea } from "components/atoms/Textarea/Textarea";
-import BtnReadMore from "components/atoms/BtnReadMore/BtnReadMore";
+import Button from "components/atoms/Button/Button";
 
 const Wrapper = styled.div`
   width: 90%;
@@ -21,13 +21,11 @@ const Wrapper = styled.div`
 const Contact = () => {
   return (
     <Wrapper>
-      <p>coming soon</p>
-
       <Input placeholder="Your name" />
       <Input placeholder="Mail address" type="mail" />
 
       <Textarea placeholder="Message"></Textarea>
-      <BtnReadMore />
+      <Button content={"SEND"} />
     </Wrapper>
   );
 };

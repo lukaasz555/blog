@@ -2,9 +2,8 @@ export const articles = [
   {
     id: 1,
     title: "Article title #1",
+    category: "crypto",
     img: "",
-    comments: 0,
-    likes: 0,
     short:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa ratione unde expedita ex corporis tenetur perferendis maxime, explicabo debitis omnis, consectetur mollitia quis incidunt eum dolorem rerum ut eveniet est? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa ratione unde expedita ex corporis tenetur perferendis maxime, explicabo debitis omnis, consectetur mollitia quis incidunt eum dolorem rerum ut eveniet est?",
     content:
@@ -14,6 +13,7 @@ export const articles = [
   {
     id: 2,
     title: "2nd article",
+    category: "NASDAQ",
     img: "",
     comments: 0,
     likes: 0,
@@ -26,6 +26,7 @@ export const articles = [
   {
     id: 3,
     title: "third article at blog",
+    category: "commodities",
     img: "",
     comments: 0,
     likes: 0,
