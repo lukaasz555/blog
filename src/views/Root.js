@@ -9,7 +9,7 @@ import { Wrapper, StyledMain } from "views/Root.styled";
 import About from "./About";
 import Contact from "./Contact";
 import Blog from "./Blog";
-import { articles } from "data/data";
+/* import { articles } from "data/data"; */
 import DesktopNav from "components/molecules/DesktopNav/DesktopNav";
 
 const Root = () => {
@@ -18,10 +18,6 @@ const Root = () => {
   const toggleMobileNav = () => {
     setOpen(!isOpen);
   };
-
-  /*   const handleHideNav = () => {
-    setOpen(!isOpen);
-  }; */
 
   return (
     <>
@@ -38,7 +34,7 @@ const Root = () => {
               <MobileNav isOpen={isOpen} onClick={toggleMobileNav}></MobileNav>
               <DesktopNav />
               <Routes>
-                <Route path="/" element={<Blog articles={articles} />} />
+                <Route path="/" element={<Blog />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
               </Routes>
