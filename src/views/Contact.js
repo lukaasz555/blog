@@ -8,14 +8,15 @@ const Wrapper = styled.div`
   width: 90%;
   margin: 0 auto;
   text-align: center;
-  /*   background-color: rgba(0, 0, 0, 0.15); */
-  /*   display: flex;
-  flex-direction: column; */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   flex-wrap: wrap;
+
+  Button {
+    align-self: center;
+  }
 `;
 
 const Contact = () => {
