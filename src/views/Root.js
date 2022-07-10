@@ -9,6 +9,7 @@ import { Wrapper, StyledMain } from "views/Root.styled";
 import About from "./About";
 import Contact from "./Contact";
 import Blog from "./Blog";
+import Category from "./Category";
 /* import { articles } from "data/data"; */
 import DesktopNav from "components/molecules/DesktopNav/DesktopNav";
 
@@ -37,6 +38,7 @@ const Root = () => {
                 <Route path="/" element={<Blog />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/category" element={<Category />} />
               </Routes>
             </StyledMain>
           </Wrapper>

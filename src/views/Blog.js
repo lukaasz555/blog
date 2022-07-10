@@ -5,8 +5,7 @@ import PropTypes from "prop-types";
 import axios from "axios";
 import Loader from "components/atoms/Loader";
 import ReactPaginate from "react-paginate";
-import PaginatedArticles from "components/helpers/PaginatedArticles";
-import { articles } from "data/data";
+import Categories from "components/molecules/Categories/Categories";
 
 const Wrapper = styled.div`
   width: 90%;
@@ -18,17 +17,15 @@ const Wrapper = styled.div`
     justify-content: center;
     margin: 3em auto;
     list-style: none;
-    /* d e l e t e */
-    /*     background-color: lightblue; */
 
     .page-item {
       background-color: rgba(255, 255, 255, 0.23);
       margin: 10px;
       cursor: pointer;
       transition: all 0.25s;
-      padding: 10px 15px;
-      text-align: center;
-      border-radius: 50%;
+      padding: 5px 10px;
+      height: 30px;
+      border-radius: 8px;
     }
 
     .active {
@@ -58,6 +55,7 @@ export const query = `
 const Blog = () => {
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState("");
+  const [filteredArticles, setFilteredArticles] = useState([]);
 
   useEffect(() => {
     axios
@@ -71,9 +69,8 @@ const Blog = () => {
         }
       )
       .then(({ data: { data } }) => {
-        /*         setArticles(data.allArticles); */
         setTimeout(() => {
-          console.log(data);
+          //console.log(data);
           setArticles(data.allArticles);
         }, 430);
       })
@@ -106,23 +103,19 @@ const Blog = () => {
     console.log(e.selected);
   };
 
+  const handleFilter = (e) => {
+    const filteredArts = articles.filter(
+      (art) => `#${art.category}` === e.target.textContent
+    );
+
+    setTimeout(() => {
+      setArticles(filteredArts);
+    }, 200);
+  };
+
   return (
     <Wrapper>
-      {/*       {articles.length > 0 ? (
-        articles.map(
-          ({ id, title, category, short, content, date, image = null }) => (
-            <Article
-              title={title}
-              short={short}
-              category={category}
-              key={id}
-              date={date}
-            />
-          )
-        )
-      ) : (
-        <p>{error ? error : <Loader />}</p>
-      )} */}
+      <Categories articles={articles} onClick={handleFilter}></Categories>
       {articles.length > 0 ? (
         <>
           {displayArts}
@@ -155,10 +148,6 @@ const Blog = () => {
       )}
     </Wrapper>
   );
-};
-
-Blog.propTypes = {
-  articles: PropTypes.arrayOf(),
 };
 
 export default Blog;

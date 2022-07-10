@@ -72,7 +72,7 @@ const Article = ({ title, short, category, date }) => {
       </WrapperTop>
       <p>{short}</p>
       <WrapperBottom>
-        <p>kategoria: {category.toUpperCase()}</p>
+        <p>#{category.toLowerCase()}</p>
         <Button content={"Read more"} />
       </WrapperBottom>
     </StyledArticle>
