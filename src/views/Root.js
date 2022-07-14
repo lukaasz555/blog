@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { theme } from "assets/theme";
@@ -12,12 +12,70 @@ import Blog from "./Blog";
 import Category from "./Category";
 /* import { articles } from "data/data"; */
 import DesktopNav from "components/molecules/DesktopNav/DesktopNav";
+import Categories from "components/molecules/Categories/Categories";
+import axios from "axios";
 
 const Root = () => {
+  // handle mobile-nav:
   const [isOpen, setOpen] = useState(false);
-
   const toggleMobileNav = () => {
     setOpen(!isOpen);
+  };
+
+  // getting data from DatoCMS:
+  const URL = "https://graphql.datocms.com/";
+  const query = `
+{
+  allArticles {
+    id
+    title
+    short
+    content
+    category
+    img {
+      id
+    }
+    date
+  }
+}
+`;
+
+  const [articles, setArticles] = useState([]);
+  const [error, setError] = useState("");
+  const [categories, setCategories] = useState([]);
+  let isFiltered = false;
+  const [filteredArts, setFilteredArts] = useState([]);
+
+  useEffect(() => {
+    axios
+      .post(
+        URL,
+        { query },
+        {
+          headers: {
+            authorization: `Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}`,
+          },
+        }
+      )
+      .then(({ data: { data } }) => {
+        setTimeout(() => {
+          setArticles(data.allArticles);
+        }, 430);
+      })
+      .catch(() => {
+        setError("Przepraszamy, nie udało się załadować artykułów.");
+      });
+  }, []);
+
+  // articles filter:
+  const handleFilter = (e) => {
+    isFiltered = true;
+    const filteredArts = articles.filter(
+      (art) => `#${art.category}` === e.target.textContent
+    );
+    console.log(isFiltered);
+    console.log(filteredArts);
+    setFilteredArts(filteredArts);
   };
 
   return (
@@ -34,8 +92,24 @@ const Root = () => {
               />
               <MobileNav isOpen={isOpen} onClick={toggleMobileNav}></MobileNav>
               <DesktopNav />
+              <Categories
+                /* articles={[{ id: 1, category: "random" }]} */
+                articles={articles}
+                onClick={handleFilter}
+              />
               <Routes>
-                <Route path="/" element={<Blog />} />
+                <Route
+                  path="/"
+                  element={
+                    <Blog
+                      articles={articles}
+                      setArticles={setArticles}
+                      error={error}
+                      isFiltered={isFiltered}
+                      filteredArts={filteredArts}
+                    />
+                  }
+                />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/category" element={<Category />} />

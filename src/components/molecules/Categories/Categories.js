@@ -4,7 +4,6 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   width: 100%;
   min-height: 30px;
-  /*   background-color: rgba(0, 0, 0, 0.45); */
   display: flex;
   justify-content: center;
   align-content: center;
