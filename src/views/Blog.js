@@ -6,6 +6,7 @@ import axios from "axios";
 import Loader from "components/atoms/Loader";
 import ReactPaginate from "react-paginate";
 import Categories from "components/molecules/Categories/Categories";
+import { articles } from "data/data";
 
 const Wrapper = styled.div`
   width: 90%;
@@ -52,12 +53,13 @@ export const query = `
 }
 `;
 
-const Blog = () => {
-  const [articles, setArticles] = useState([]);
+const Blog = ({ articles, setArticles, error, isFiltered, filteredArts }) => {
+  /* const [articles, setArticles] = useState([]);
   const [error, setError] = useState("");
+  let isFiltered = false;
   const [filteredArticles, setFilteredArticles] = useState([]);
-
-  useEffect(() => {
+ */
+  /*   useEffect(() => {
     axios
       .post(
         URL,
@@ -70,18 +72,17 @@ const Blog = () => {
       )
       .then(({ data: { data } }) => {
         setTimeout(() => {
-          //console.log(data);
           setArticles(data.allArticles);
         }, 430);
       })
       .catch(() => {
         setError("Przepraszamy, nie udało się załadować artykułów.");
       });
-  }, []);
+  }, []); */
 
-  const [arts, setArts] = useState(articles.slice(0, 999));
+  /* pagination #start */
+  /*   const [arts, setArts] = useState(articles.slice(0, 999)); */
   const [pageNumber, setPageNumber] = useState(0);
-
   const artsPerPage = 3;
   const pagesVisited = pageNumber * artsPerPage;
 
@@ -97,26 +98,43 @@ const Blog = () => {
       />
     ));
 
+  const displayFilteredArts = filteredArts
+    .slice(pagesVisited, pagesVisited + artsPerPage)
+    .map(({ id, title, category, short, content, date, image = null }) => (
+      <Article
+        title={title}
+        short={short}
+        category={category}
+        key={id}
+        date={date}
+      />
+    ));
+
   const pageCount = Math.ceil(articles.length / artsPerPage);
   const handleChangePage = (e) => {
     setPageNumber(e.selected);
-    console.log(e.selected);
   };
+  /* pagination #end */
 
-  const handleFilter = (e) => {
+  /* articles filter #start */
+  /*   const handleFilter = (e) => {
+    isFiltered = true;
     const filteredArts = articles.filter(
       (art) => `#${art.category}` === e.target.textContent
     );
+    console.log(isFiltered);
+    console.log(filteredArts); */
 
-    setTimeout(() => {
-      setArticles(filteredArts);
-    }, 200);
-  };
+  /*     setTimeout(() => {
+      setFiltered(true);
+      setFilteredArticles(filteredArts);
+    }, 200); 
+    setArticles(filteredArts);
+  };*/
 
   return (
     <Wrapper>
-      <Categories articles={articles} onClick={handleFilter}></Categories>
-      {articles.length > 0 ? (
+      {!isFiltered ? (
         <>
           {displayArts}
           <ReactPaginate
@@ -125,7 +143,56 @@ const Blog = () => {
             pageCount={pageCount}
             onPageChange={handleChangePage}
             containerClassName="paginationButtons"
-            /* --- */
+            pageRangeDisplayed={3}
+            marginPagesDisplayed={2}
+            pageClassName="page-item"
+            pageLinkClassName="page-link"
+            previousClassName="page-item"
+            previousLinkClassName="page-link"
+            nextClassName="page-item"
+            nextLinkClassName="page-link"
+            breakLabel="..."
+            breakClassName="page-item"
+            breakLinkClassName="page-link"
+            activeClassName="active"
+            renderOnZeroPageCount={null}
+          />
+        </>
+      ) : (
+        <>
+          {displayFilteredArts}
+          <ReactPaginate
+            nextLabel="następna strona"
+            previousLabel="poprzednia strona"
+            pageCount={pageCount}
+            onPageChange={handleChangePage}
+            containerClassName="paginationButtons"
+            pageRangeDisplayed={3}
+            marginPagesDisplayed={2}
+            pageClassName="page-item"
+            pageLinkClassName="page-link"
+            previousClassName="page-item"
+            previousLinkClassName="page-link"
+            nextClassName="page-item"
+            nextLinkClassName="page-link"
+            breakLabel="..."
+            breakClassName="page-item"
+            breakLinkClassName="page-link"
+            activeClassName="active"
+            renderOnZeroPageCount={null}
+          />
+        </>
+      )}
+
+      {/*       {articles.length > 0 && !isFiltered ? (
+        <>
+          {displayArts}
+          <ReactPaginate
+            nextLabel="następna strona"
+            previousLabel="poprzednia strona"
+            pageCount={pageCount}
+            onPageChange={handleChangePage}
+            containerClassName="paginationButtons"
             pageRangeDisplayed={3}
             marginPagesDisplayed={2}
             pageClassName="page-item"
@@ -145,7 +212,7 @@ const Blog = () => {
         error
       ) : (
         <Loader />
-      )}
+      )} */}
     </Wrapper>
   );
 };
