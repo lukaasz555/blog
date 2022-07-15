@@ -126,7 +126,8 @@ const Root = () => {
                   }) => (
                     <Route
                       key={id}
-                      path={id}
+                      /* path={id} */
+                      path={`/${id}`}
                       element={
                         <FullArticle
                           key={id}

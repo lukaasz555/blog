@@ -24,8 +24,8 @@ const Wrapper = styled.div`
     object-fit: cover;
     border-radius: 50%;
     margin: 1em 1em 1em 0;
-    transform: scale(0.95);
-    transition: transform 0.5s;
+    transform: scale(1);
+    transition: transform 0.3s;
 
     &:hover {
       transform: scale(1.05);
@@ -82,7 +82,7 @@ const Author = () => {
       <Describe>
         <About>
           <h3>John Doe</h3>
-          <p>autor bloga, człowiek renesansu, piwosz</p>
+          <p>autor bloga, człowiek renesansu, piwosz:D</p>
         </About>
         <Socials>
           <a href="https://www.linkedin.com/in/%C5%82ukasz-zegar/">
