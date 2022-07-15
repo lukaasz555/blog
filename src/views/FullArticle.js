@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Loader from "components/atoms/Loader";
 import Button from "components/atoms/Button/Button";
 import Author from "components/molecules/Author/Author";
 

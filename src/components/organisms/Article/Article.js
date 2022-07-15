@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Button from "components/atoms/Button/Button";
+import { NavLink } from "react-router-dom";
 
 const StyledArticle = styled.article`
   width: 100%;
@@ -20,10 +21,6 @@ const StyledArticle = styled.article`
 `;
 
 const WrapperTop = styled.div`
-  h3 {
-    margin: 0;
-  }
-
   p {
     margin: 0.5em 0;
     font-size: ${({ theme }) => theme.fontSize.xs};
@@ -63,17 +60,35 @@ const WrapperBottom = styled.div`
   }
 `;
 
-const Article = ({ title, short, category, date }) => {
+const StyledLink = styled(NavLink)`
+  text-decoration: none;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.8);
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  h3 {
+    margin: 0;
+  }
+`;
+
+const Article = ({ id, title, short, category, date }) => {
   return (
     <StyledArticle>
       <WrapperTop>
-        <h3>{title}</h3>
+        <StyledLink to={id}>
+          <h3 onClick={() => console.log(id, title)}>{title}</h3>
+        </StyledLink>
+
         <p>{date}</p>
       </WrapperTop>
       <p>{short}</p>
       <WrapperBottom>
-        {/*         <p>#{category.toLowerCase()}</p> */}
-        <Button content={"Read more"} />
+        <NavLink to={id}>
+          <Button content={"Read more"} />
+        </NavLink>
       </WrapperBottom>
     </StyledArticle>
   );
