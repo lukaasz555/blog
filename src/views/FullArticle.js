@@ -35,7 +35,7 @@ const StyledBottom = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 2em;
+  margin: 5em 0 2em;
 
   p {
     margin: 0;

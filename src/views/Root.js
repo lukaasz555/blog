@@ -113,7 +113,10 @@ const Root = () => {
                 />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
-                <Route path="/category" element={<Category />} />
+                <Route
+                  path="/category"
+                  element={<Category articles={articles} />}
+                />
                 {articles.map(
                   ({
                     id,
