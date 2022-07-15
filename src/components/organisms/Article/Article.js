@@ -29,9 +29,9 @@ const WrapperTop = styled.div`
     font-size: ${({ theme }) => theme.fontSize.xs};
   }
 
-  @media (min-width: 768px) {
+  /*   @media (min-width: 768px) {
     width: 75%;
-  }
+  } */
 `;
 
 const WrapperBottom = styled.div`
@@ -55,7 +55,7 @@ const WrapperBottom = styled.div`
 
   @media (min-width: 768px) {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: flex-end;
     p {
       display: inline;
@@ -72,7 +72,7 @@ const Article = ({ title, short, category, date }) => {
       </WrapperTop>
       <p>{short}</p>
       <WrapperBottom>
-        <p>#{category.toLowerCase()}</p>
+        {/*         <p>#{category.toLowerCase()}</p> */}
         <Button content={"Read more"} />
       </WrapperBottom>
     </StyledArticle>
