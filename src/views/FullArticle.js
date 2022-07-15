@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Button from "components/atoms/Button/Button";
 import Author from "components/molecules/Author/Author";
+import { NavLink } from "react-router-dom";
 
 const Wrapper = styled.div`
   border-top: 1px solid rgba(0, 0, 0, 0.8);
@@ -77,9 +78,9 @@ const FullArticle = ({
         kategoria: <a href="/category">#{category}</a>
       </p>
 
-      <a href="/">
+      <NavLink to="/">
         <Button content="Back" />
-      </a>
+      </NavLink>
     </StyledBottom>
 
     <Author />

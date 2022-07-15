@@ -61,9 +61,10 @@ const WrapperBottom = styled.div`
 `;
 
 const StyledLink = styled(NavLink)`
+  font-family: "Montserrat", sans-serif;
   text-decoration: none;
   margin: 0;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.85);
 
   &:hover {
     text-decoration: underline;

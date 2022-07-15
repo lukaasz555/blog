@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import img from "img/man.jpg";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faInstagram,
@@ -75,9 +76,9 @@ const Socials = styled.div`
 const Author = () => {
   return (
     <Wrapper>
-      <a href="/about">
+      <NavLink to="/about">
         <img src={img} alt="post author" />
-      </a>
+      </NavLink>
 
       <Describe>
         <About>
