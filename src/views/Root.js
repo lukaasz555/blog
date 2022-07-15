@@ -13,6 +13,7 @@ import Category from "./Category";
 /* import { articles } from "data/data"; */
 import DesktopNav from "components/molecules/DesktopNav/DesktopNav";
 import Categories from "components/molecules/Categories/Categories";
+import FullArticle from "./FullArticle";
 import axios from "axios";
 
 const Root = () => {
@@ -34,6 +35,7 @@ const Root = () => {
     category
     img {
       id
+      url
     }
     date
   }
@@ -92,11 +94,10 @@ const Root = () => {
               />
               <MobileNav isOpen={isOpen} onClick={toggleMobileNav}></MobileNav>
               <DesktopNav />
-              <Categories
-                /* articles={[{ id: 1, category: "random" }]} */
+              {/*               <Categories
                 articles={articles}
                 onClick={handleFilter}
-              />
+              /> */}
               <Routes>
                 <Route
                   path="/"
@@ -113,6 +114,33 @@ const Root = () => {
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/category" element={<Category />} />
+                {articles.map(
+                  ({
+                    id,
+                    title,
+                    short,
+                    category,
+                    content,
+                    img = null,
+                    date,
+                  }) => (
+                    <Route
+                      key={id}
+                      path={id}
+                      element={
+                        <FullArticle
+                          key={id}
+                          title={title}
+                          short={short}
+                          category={category}
+                          content={content}
+                          image={img}
+                          date={date}
+                        />
+                      }
+                    />
+                  )
+                )}
               </Routes>
             </StyledMain>
           </Wrapper>

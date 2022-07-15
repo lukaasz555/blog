@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const StyledButton = styled.button`
-  width: 120px;
-  height: 40px;
+  /*   width: 120px;
+  height: 40px; */
+  padding: 10px 20px;
   background-color: transparent;
   color: ${({ theme }) => theme.colors.black};
   cursor: pointer;
