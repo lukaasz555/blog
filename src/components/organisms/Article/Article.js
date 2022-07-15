@@ -78,7 +78,7 @@ const Article = ({ id, title, short, category, date }) => {
   return (
     <StyledArticle>
       <WrapperTop>
-        <StyledLink to={id}>
+        <StyledLink to={`/${id}`}>
           <h3 onClick={() => console.log(id, title)}>{title}</h3>
         </StyledLink>
 
@@ -86,7 +86,7 @@ const Article = ({ id, title, short, category, date }) => {
       </WrapperTop>
       <p>{short}</p>
       <WrapperBottom>
-        <NavLink to={id}>
+        <NavLink to={`/${id}`}>
           <Button content={"Read more"} />
         </NavLink>
       </WrapperBottom>
