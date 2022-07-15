@@ -2,6 +2,6 @@
 
 Just a simple blog template. Used technology: React, DatoCMS, GraphQL
 
-live-preview: https://calm-sable-723e01.netlify.app/
+live-preview: https://incredible-naiad-4a434c.netlify.app/
 
 
