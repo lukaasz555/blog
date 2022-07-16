@@ -44,9 +44,9 @@ const Root = () => {
 
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState("");
-  const [categories, setCategories] = useState([]);
   let isFiltered = false;
   const [filteredArts, setFilteredArts] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     axios
@@ -60,9 +60,10 @@ const Root = () => {
         }
       )
       .then(({ data: { data } }) => {
-        setTimeout(() => {
+        /*         setTimeout(() => {
           setArticles(data.allArticles);
-        }, 430);
+        }, 430); */
+        setArticles(data.allArticles);
       })
       .catch(() => {
         setError("Przepraszamy, nie udało się załadować artykułów.");
@@ -94,10 +95,6 @@ const Root = () => {
               />
               <MobileNav isOpen={isOpen} onClick={toggleMobileNav}></MobileNav>
               <DesktopNav />
-              {/*               <Categories
-                articles={articles}
-                onClick={handleFilter}
-              /> */}
               <Routes>
                 <Route
                   path="/"

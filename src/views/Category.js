@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Article from "components/organisms/Article/Article";
 import Loader from "components/atoms/Loader";
+import { array } from "prop-types";
 
 const Wrapper = styled.div`
   width: 90%;
@@ -41,9 +42,23 @@ const StyledTop = styled.div`
 `;
 
 const Category = ({ articles }) => {
+  let categories = [];
+  /*   articles.filter(
+    (item) =>
+      !categories.includes(item.category) && categories.push(item.category)
+  ); */
+
+  setTimeout(
+    articles.filter(
+      (item) =>
+        !categories.includes(item.category) && categories.push(item.category)
+    ),
+    100
+  );
+
   const [filteredCategories, setFilteredCategories] = useState([]);
 
-  const filterCategories = (e) => {
+  const handleFilter = (e) => {
     if (articles) {
       const filteredArts = articles.filter(
         (art) => art.category === e.target.textContent
@@ -52,15 +67,25 @@ const Category = ({ articles }) => {
     }
   };
 
+  console.log(categories);
+
   return (
     <Wrapper>
       {articles && (
         <>
           <StyledTop>
-            <h1>Kategorie wpisów:</h1>
-            {articles.map((art) => (
-              <button key={art.id} onClick={filterCategories}>
-                {art.category}
+            <h1>Wybierz kategorię:</h1>
+            {/*             {articles.map((item) => (
+              <button
+                key={item.id}
+                onClick={handleFilter}
+              >
+                {item.category}
+              </button>
+            ))} */}
+            {categories.map((item) => (
+              <button key={item} onClick={handleFilter}>
+                {item}
               </button>
             ))}
           </StyledTop>
@@ -81,5 +106,4 @@ const Category = ({ articles }) => {
     </Wrapper>
   );
 };
-
 export default Category;
