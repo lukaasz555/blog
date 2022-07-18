@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {
   Wrapper,
   StyledLink,
-} from "components/molecules/MobileNav/MobileNav.styled";
+} from "components/molecules/MobileNav/MobileNav.styles";
 
 const MobileNav = ({ isOpen, onClick }) => {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import { Wrapper, StyledLink } from "./DesktopNav.styled";
+import { Wrapper, StyledLink } from "./DesktopNav.styles";
 
 const DesktopNav = () => {
   return (

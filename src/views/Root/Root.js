@@ -5,15 +5,13 @@ import { theme } from "assets/theme";
 import GlobalStyle from "assets/styles/GlobalStyles";
 import Header from "components/molecules/Header/Header";
 import MobileNav from "components/molecules/MobileNav/MobileNav";
-import { Wrapper, StyledMain } from "views/Root.styled";
-import About from "./About";
-import Contact from "./Contact";
-import Blog from "./Blog";
-import Category from "./Category";
-/* import { articles } from "data/data"; */
+import { Wrapper, StyledMain } from "views/Root/Root.styles";
+import About from "../About/About";
+import Contact from "../Contact/Contact";
+import Blog from "../Blog/Blog";
+import Category from "../Category/Category";
 import DesktopNav from "components/molecules/DesktopNav/DesktopNav";
-import Categories from "components/molecules/Categories/Categories";
-import FullArticle from "./FullArticle";
+import FullArticle from "../FullArticle/FullArticle";
 import axios from "axios";
 
 const Root = () => {
@@ -126,7 +124,6 @@ const Root = () => {
                   }) => (
                     <Route
                       key={id}
-                      /* path={id} */
                       path={`/${id}`}
                       element={
                         <FullArticle

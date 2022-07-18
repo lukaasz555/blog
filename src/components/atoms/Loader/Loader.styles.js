@@ -1,7 +1,6 @@
-import React from "react";
 import styled from "styled-components";
 
-const StyledLoader = styled.div`
+export const StyledLoader = styled.div`
   width: 100px;
   height: 6px;
   background-color: #000;
@@ -38,11 +37,3 @@ const StyledLoader = styled.div`
     }
   }
 `;
-
-const Loader = () => (
-  <StyledLoader>
-    <span></span>
-  </StyledLoader>
-);
-
-export default Loader;
