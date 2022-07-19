@@ -23,34 +23,6 @@ export const query = `
 `;
 
 const Blog = ({ articles, setArticles, error, isFiltered, filteredArts }) => {
-  /* const [articles, setArticles] = useState([]);
-  const [error, setError] = useState("");
-  let isFiltered = false;
-  const [filteredArticles, setFilteredArticles] = useState([]);
- */
-  /*   useEffect(() => {
-    axios
-      .post(
-        URL,
-        { query },
-        {
-          headers: {
-            authorization: `Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}`,
-          },
-        }
-      )
-      .then(({ data: { data } }) => {
-        setTimeout(() => {
-          setArticles(data.allArticles);
-        }, 430);
-      })
-      .catch(() => {
-        setError("Przepraszamy, nie udało się załadować artykułów.");
-      });
-  }, []); */
-
-  /* pagination #start */
-  /*   const [arts, setArts] = useState(articles.slice(0, 999)); */
   const [pageNumber, setPageNumber] = useState(0);
   const artsPerPage = 3;
   const pagesVisited = pageNumber * artsPerPage;
@@ -72,7 +44,6 @@ const Blog = ({ articles, setArticles, error, isFiltered, filteredArts }) => {
   const handleChangePage = (e) => {
     setPageNumber(e.selected);
   };
-  /* pagination #end */
 
   return (
     <Wrapper>
@@ -80,8 +51,6 @@ const Blog = ({ articles, setArticles, error, isFiltered, filteredArts }) => {
         <>
           {displayArts}
           <ReactPaginate
-            nextLabel="następna strona"
-            previousLabel="poprzednia strona"
             pageCount={pageCount}
             onPageChange={handleChangePage}
             containerClassName="paginationButtons"

@@ -21,9 +21,18 @@ export const Wrapper = styled.div`
       border-radius: 8px;
     }
 
+    .page-item:first-child {
+      margin-left: 0;
+    }
+
     .active {
       color: ${({ theme }) => theme.colors.white};
       background-color: ${({ theme }) => theme.colors.black};
+    }
+
+    a[aria-label="Next page"],
+    a[aria-label="Previous page"] {
+      display: none;
     }
   }
 `;
