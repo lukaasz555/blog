@@ -17,12 +17,13 @@ const ContactForm = () => {
     if (name && email && message) {
       const serviceId = "service_83oanad";
       const templateId = "template_oszw945";
-      const userId = "IZhpTRSQKv9adz2W3";
+      const userId = `${process.env.REACT_APP_EMAILJS_KEY}`;
       const templateParams = {
         name,
         email,
         message,
       };
+      //`Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}
 
       emailjs
         .send(serviceId, templateId, templateParams, userId)
