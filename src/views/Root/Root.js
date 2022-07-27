@@ -36,15 +36,15 @@ const Root = () => {
       url
     }
     date
+    source
   }
 }
 `;
 
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState("");
-  let isFiltered = false;
+  //let isFiltered = false;
   const [filteredArts, setFilteredArts] = useState([]);
-  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     axios
@@ -58,27 +58,25 @@ const Root = () => {
         }
       )
       .then(({ data: { data } }) => {
-        /*         setTimeout(() => {
-          setArticles(data.allArticles);
-        }, 430); */
-        setArticles(data.allArticles);
+        const arts = data.allArticles.map((art) => ({
+          id: +art.id,
+          key: art.id,
+          title: art.title,
+          date: art.date,
+          short: art.short,
+          image: art.image,
+          content: art.content,
+          category: art.category,
+          source: art.source,
+        }));
+        setArticles(arts.sort((a, b) => b.id - a.id));
       })
       .catch(() => {
         setError("Przepraszamy, nie udało się załadować artykułów.");
       });
   }, []);
 
-  // articles filter:
-  const handleFilter = (e) => {
-    isFiltered = true;
-    const filteredArts = articles.filter(
-      (art) => `#${art.category}` === e.target.textContent
-    );
-    console.log(isFiltered);
-    console.log(filteredArts);
-    setFilteredArts(filteredArts);
-  };
-
+  //console.log(articles.sort((a, b) => b.id - a.id));
   return (
     <>
       <Router>
@@ -101,7 +99,7 @@ const Root = () => {
                       articles={articles}
                       setArticles={setArticles}
                       error={error}
-                      isFiltered={isFiltered}
+                      //isFiltered={isFiltered}
                       filteredArts={filteredArts}
                     />
                   }
@@ -121,19 +119,21 @@ const Root = () => {
                     content,
                     img = null,
                     date,
+                    source,
                   }) => (
                     <Route
                       key={id}
                       path={`/${id}`}
                       element={
                         <FullArticle
-                          key={id}
+                          key={Number}
                           title={title}
                           short={short}
                           category={category}
                           content={content}
                           image={img}
                           date={date}
+                          source={source}
                         />
                       }
                     />
