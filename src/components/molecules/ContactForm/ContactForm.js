@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Wrapper, Container } from "./ContactForm.styles";
 import TextareaAutosize from "react-textarea-autosize";
 import emailjs from "emailjs-com";
+import SendButton from "components/atoms/SendButton/SendButton";
 
 const ContactForm = () => {
   const [name, setName] = useState("");
@@ -70,7 +71,9 @@ const ContactForm = () => {
           onChange={(e) => setMessage(e.target.value)}
         />
       </Container>
-      <button onClick={submit}>SEND</button>
+      {/*       <button onClick={submit}>SEND</button> */}
+      {/* <button onClick={submit}>vali test</button> */}
+      <SendButton onClick={submit} />
     </Wrapper>
   );
 };

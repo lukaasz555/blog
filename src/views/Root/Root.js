@@ -64,19 +64,19 @@ const Root = () => {
           title: art.title,
           date: art.date,
           short: art.short,
-          image: art.image,
+          img: art.img,
           content: art.content,
           category: art.category,
           source: art.source,
         }));
         setArticles(arts.sort((a, b) => b.id - a.id));
+        console.log(arts);
       })
       .catch(() => {
         setError("Przepraszamy, nie udało się załadować artykułów.");
       });
   }, []);
 
-  //console.log(articles.sort((a, b) => b.id - a.id));
   return (
     <>
       <Router>
@@ -117,7 +117,8 @@ const Root = () => {
                     short,
                     category,
                     content,
-                    img = null,
+                    // img = null,
+                    img,
                     date,
                     source,
                   }) => (
@@ -131,7 +132,7 @@ const Root = () => {
                           short={short}
                           category={category}
                           content={content}
-                          image={img}
+                          img={img}
                           date={date}
                           source={source}
                         />

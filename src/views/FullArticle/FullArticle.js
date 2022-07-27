@@ -15,7 +15,7 @@ const FullArticle = ({
   short,
   category,
   content,
-  image = null,
+  img = null,
   date,
   source,
 }) => (
@@ -26,7 +26,7 @@ const FullArticle = ({
     </StyledTop>
 
     <StyledContent>
-      {image ? <img src={image.url} alt={title} /> : null}
+      {img ? <img src={img.url} alt={title} /> : null}
       <strong>{short}</strong>
       <p>{content}</p>
       <span>

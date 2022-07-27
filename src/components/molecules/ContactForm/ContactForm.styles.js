@@ -5,21 +5,6 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  //border: 2px solid lightblue;
-  /* 
-  input,
-  textarea {
-    min-width: 200px;
-  }
-
-  input {
-    margin: 1em 0;
-  }
-
-
-  input[type="email"] {
-    margin: 2em 0;
-  }*/
 `;
 
 export const Container = styled.div`
@@ -29,7 +14,6 @@ export const Container = styled.div`
   justify-content: center;
   min-width: 360px;
   margin: 2em 0;
-  //background-color: lightgoldenrodyellow;
 
   input {
     padding-bottom: 0.75em;
