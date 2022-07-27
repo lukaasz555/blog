@@ -10,10 +10,6 @@ const ContactForm = () => {
   const [message, setMessage] = useState("");
   const [mailSent, setMailSent] = useState(false);
 
-  /*  templateID: template_oszw945;
-  serviceID: service_83oanad;
-  publicKEY: IZhpTRSQKv9adz2W3; */
-
   const submit = () => {
     if (name && email && message) {
       const serviceId = "service_83oanad";
@@ -24,7 +20,6 @@ const ContactForm = () => {
         email,
         message,
       };
-      //`Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}
 
       emailjs
         .send(serviceId, templateId, templateParams, userId)
@@ -71,9 +66,12 @@ const ContactForm = () => {
           onChange={(e) => setMessage(e.target.value)}
         />
       </Container>
-      {/*       <button onClick={submit}>SEND</button> */}
-      {/* <button onClick={submit}>vali test</button> */}
-      <SendButton onClick={submit} />
+      {mailSent ? (
+        <p>Thanks for your message!</p>
+      ) : (
+        <SendButton onClick={submit} />
+      )}
+      {/*       <SendButton onClick={submit} /> */}
     </Wrapper>
   );
 };

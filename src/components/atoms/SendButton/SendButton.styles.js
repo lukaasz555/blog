@@ -10,6 +10,7 @@ export const StyledSendBtn = styled.button`
   border: none;
   border-radius: 8px;
   padding: 10px 20px;
+  margin-bottom: 2em;
   cursor: pointer;
   overflow: hidden;
   transition: all 0.25s;
