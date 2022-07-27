@@ -10,7 +10,7 @@ const Category = ({ articles }) => {
       (item) =>
         !categories.includes(item.category) && categories.push(item.category)
     ),
-    100
+    0
   );
 
   const [filteredCategories, setFilteredCategories] = useState([]);

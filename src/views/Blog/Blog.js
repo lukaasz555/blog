@@ -5,39 +5,15 @@ import Loader from "components/atoms/Loader/Loader";
 import ReactPaginate from "react-paginate";
 import { Wrapper } from "./Blog.styles";
 
-export const URL = "https://graphql.datocms.com/";
-export const query = `
-{
-  allArticles {
-    id
-    title
-    short
-    content
-    category
-    img {
-      id
-    }
-    date
-  }
-}
-`;
-
-const Blog = ({ articles, setArticles, error, isFiltered, filteredArts }) => {
+const Blog = ({ articles, setArticles, error, isFiltered }) => {
   const [pageNumber, setPageNumber] = useState(0);
   const artsPerPage = 3;
   const pagesVisited = pageNumber * artsPerPage;
 
   const displayArts = articles
     .slice(pagesVisited, pagesVisited + artsPerPage)
-    .map(({ id, title, category, short, content, date, image = null }) => (
-      <Article
-        title={title}
-        short={short}
-        category={category}
-        key={id}
-        id={id}
-        date={date}
-      />
+    .map(({ id, title, short, content, date, image = null }) => (
+      <Article title={title} short={short} key={id} id={id} date={date} />
     ));
 
   const pageCount = Math.ceil(articles.length / artsPerPage);
@@ -47,7 +23,7 @@ const Blog = ({ articles, setArticles, error, isFiltered, filteredArts }) => {
 
   return (
     <Wrapper>
-      {articles.length > 0 && !isFiltered ? (
+      {articles.length > 0 ? (
         <>
           {displayArts}
           <ReactPaginate

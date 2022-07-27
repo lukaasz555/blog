@@ -25,10 +25,6 @@ const WrapperTop = styled.div`
     margin: 0.5em 0;
     font-size: ${({ theme }) => theme.fontSize.xs};
   }
-
-  /*   @media (min-width: 768px) {
-    width: 75%;
-  } */
 `;
 
 const WrapperBottom = styled.div`

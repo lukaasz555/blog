@@ -26,6 +26,16 @@ export const StyledContent = styled.div`
     margin: 0 0 2em;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
   }
+
+  span {
+    color: rgba(0, 0, 0, 0.35);
+    font-size: ${({ theme }) => theme.fontSize.xs};
+    font-style: italic;
+  }
+
+  a {
+    color: ${({ theme }) => theme.colors.blue};
+  }
 `;
 
 export const StyledBottom = styled.div`

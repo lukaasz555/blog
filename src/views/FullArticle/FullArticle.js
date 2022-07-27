@@ -17,6 +17,7 @@ const FullArticle = ({
   content,
   image = null,
   date,
+  source,
 }) => (
   <Wrapper>
     <StyledTop>
@@ -28,6 +29,9 @@ const FullArticle = ({
       {image ? <img src={image.url} alt={title} /> : null}
       <strong>{short}</strong>
       <p>{content}</p>
+      <span>
+        źródło: <a href={source}>{source}</a>
+      </span>
     </StyledContent>
     <StyledBottom>
       <p>
