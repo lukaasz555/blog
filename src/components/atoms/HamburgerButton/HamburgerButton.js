@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledButton } from "./HamburgerButton.styled";
+import { StyledButton } from "./HamburgerButton.styles";
 import PropTypes from "prop-types";
 
 const HamburgerButton = ({ isOpen, setOpen }) => {

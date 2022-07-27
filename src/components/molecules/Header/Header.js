@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Logo from "components/atoms/Logo/Logo";
 import HamburgerButton from "components/atoms/HamburgerButton/HamburgerButton";
-import { StyledHeader } from "./Header.styled";
+import { StyledHeader } from "./Header.styles";
 
 const Header = ({ isOpen, setOpen }) => (
   <StyledHeader>

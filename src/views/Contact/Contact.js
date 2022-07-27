@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import Input from "components/atoms/Input/Input";
 import { Textarea } from "components/atoms/Textarea/Textarea";
 import Button from "components/atoms/Button/Button";
@@ -19,6 +18,7 @@ const Wrapper = styled.div`
   align-content: center;
   flex-wrap: wrap;
 `;
+import { Wrapper } from "./Contact.styles";
 
 const Contact = () => {
   return (
