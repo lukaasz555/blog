@@ -19,7 +19,7 @@ const Author = () => {
       <Describe>
         <About>
           <h3>John Doe</h3>
-          <p>autor bloga, człowiek renesansu, piwosz:D</p>
+          <p>blog author</p>
         </About>
         <Socials>
           <a href="https://www.linkedin.com/in/%C5%82ukasz-zegar/">

@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
-  /*   border-top: 1px solid rgba(0, 0, 0, 0.8); */
   border: 1px solid rgba(0, 0, 0, 0.15);
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.15);
   padding: 0 1em;
@@ -33,6 +32,7 @@ export const Describe = styled.div`
   h3,
   p {
     margin: 0;
+    padding: 0.1em 0;
   }
 `;
 

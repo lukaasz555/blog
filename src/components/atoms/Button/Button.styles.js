@@ -5,13 +5,15 @@ export const StyledButton = styled.button`
   background-color: transparent;
   color: ${({ theme }) => theme.colors.black};
   cursor: pointer;
-  border: 2px solid;
+  border: 2px solid ${({ theme }) => theme.colors.black};
   font-weight: 600;
   letter-spacing: 2px;
   position: relative;
   align-self: center;
   border-radius: 4px;
-  transition: color 0.15s, background-color 0.15s;
+  transition: color 0.35s, transform 0.2s;
+  box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.35);
+  z-index: 1;
 
   &::after {
     content: "";
@@ -20,19 +22,19 @@ export const StyledButton = styled.button`
     width: 100%;
     top: 0;
     height: 100%;
-    background-color: transparent;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    transition: opacity 0.5s;
+    background-color: ${({ theme }) => theme.colors.black};
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+    z-index: -1;
   }
 
   &:hover::after {
-    opacity: 1;
+    transform: scaleX(1);
   }
 
-  &:active {
+  &:hover {
     color: ${({ theme }) => theme.colors.white};
-    background-color: ${({ theme }) => theme.colors.black};
   }
 
   @media (min-width: 768px) {

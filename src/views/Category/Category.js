@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Article from "components/organisms/Article/Article";
 import { Wrapper, StyledTop } from "./Category.styles";
+import CategoryButton from "components/atoms/CategoryButton/CategoryButton";
 
 const Category = ({ articles }) => {
   let categories = [];
@@ -32,9 +33,11 @@ const Category = ({ articles }) => {
             <h1>Wybierz kategorię:</h1>
 
             {categories.map((item) => (
-              <button key={item} onClick={handleFilter}>
-                {item}
-              </button>
+              <CategoryButton
+                key={item}
+                itemName={item}
+                onClick={handleFilter}
+              />
             ))}
           </StyledTop>
 
