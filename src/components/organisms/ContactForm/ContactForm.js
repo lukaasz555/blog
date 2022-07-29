@@ -14,7 +14,7 @@ const ContactForm = () => {
   const submit = () => {
     if (name && email && message) {
       const serviceId = "service_83oanad";
-      const templateId = "template_oszw945";
+      const templateId = "JDblog";
       const userId = `${process.env.REACT_APP_EMAILJS_KEY}`;
       const templateParams = {
         name,
