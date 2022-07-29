@@ -2,7 +2,7 @@
 
 Just a simple blog template. Used technology: React, Headless CMS, GraphQL
 
-live-preview: https://radiant-tapioca-d3ab28.netlify.app/
+live-preview: https://melodious-gingersnap-76e04c.netlify.app/
 
 
 
