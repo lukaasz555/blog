@@ -14,6 +14,7 @@ export const StyledSendBtn = styled.button`
   cursor: pointer;
   overflow: hidden;
   transition: all 0.25s;
+  box-shadow: 0px 6px 20px ${({ theme }) => theme.colors.lightGray};
 
   span {
     display: block;

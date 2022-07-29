@@ -18,6 +18,7 @@ export const Wrapper = styled.div`
   @media (min-width: 768px) {
     display: none;
   }
+  z-index: 1;
 `;
 
 export const StyledLink = styled(NavLink)`

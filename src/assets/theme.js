@@ -4,6 +4,7 @@ export const theme = {
     black: "#000",
     orange: "#FF7F11",
     blue: "#507DBC",
+    lightGray: "rgba(0,0,0, .45)",
   },
 
   fontSize: {

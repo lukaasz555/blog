@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Wrapper, Container } from "./ContactForm.styles";
-import TextareaAutosize from "react-textarea-autosize";
+import { Wrapper } from "./ContactForm.styles";
 import emailjs from "emailjs-com";
 import SendButton from "components/atoms/SendButton/SendButton";
+import Input from "components/atoms/Input/Input";
+import Textarea from "components/atoms/Textarea/Textarea";
 
 const ContactForm = () => {
   const [name, setName] = useState("");
@@ -37,41 +38,25 @@ const ContactForm = () => {
 
   return (
     <Wrapper>
-      <Container>
-        <label htmlFor="name">Your name</label>
-        <input
-          type="text"
-          id={name}
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </Container>
+      <Input
+        id="name"
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <Input
+        id="Email address"
+        type="text"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <Textarea
+        id="message"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+      />
 
-      <Container>
-        <label htmlFor="email">Your email</label>
-        <input
-          type="email"
-          id={email}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </Container>
-
-      <Container>
-        <label htmlFor="message">Your message</label>
-        <TextareaAutosize
-          cacheMeasurements
-          value={message}
-          id={message}
-          onChange={(e) => setMessage(e.target.value)}
-        />
-      </Container>
-      {mailSent ? (
-        <p>Thanks for your message!</p>
-      ) : (
-        <SendButton onClick={submit} />
-      )}
-      {/*       <SendButton onClick={submit} /> */}
+      <SendButton onClick={submit} />
     </Wrapper>
   );
 };

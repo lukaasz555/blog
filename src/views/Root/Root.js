@@ -70,7 +70,6 @@ const Root = () => {
           source: art.source,
         }));
         setArticles(arts.sort((a, b) => b.id - a.id));
-        console.log(arts);
       })
       .catch(() => {
         setError("Przepraszamy, nie udało się załadować artykułów.");
