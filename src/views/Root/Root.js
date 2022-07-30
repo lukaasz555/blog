@@ -25,16 +25,28 @@ const Root = () => {
   const URL = "https://graphql.datocms.com/";
   const query = `
 {
+  allAbouts {
+    id
+    header
+    part1
+    part2
+    part3
+    adminImg {
+      id
+      url
+    }
+  }
+
   allArticles {
     id
-    title
-    short
-    content
-    category
     img {
       id
       url
     }
+    title
+    short
+    content
+    category
     date
     source
   }
@@ -45,6 +57,7 @@ const Root = () => {
   const [error, setError] = useState("");
   //let isFiltered = false;
   const [filteredArts, setFilteredArts] = useState([]);
+  //const [about, setAbout] = useState({});
 
   useEffect(() => {
     axios
@@ -70,6 +83,8 @@ const Root = () => {
           source: art.source,
         }));
         setArticles(arts.sort((a, b) => b.id - a.id));
+        //setAbout(data.allAbouts);
+        //console.log(about);
       })
       .catch(() => {
         setError("Przepraszamy, nie udało się załadować artykułów.");
