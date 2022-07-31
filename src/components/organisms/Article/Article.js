@@ -76,7 +76,7 @@ const Article = ({ id, title, short, category, date }) => {
     <StyledArticle>
       <WrapperTop>
         <StyledLink to={`/${id}`}>
-          <h3 onClick={() => console.log(id, title)}>{title}</h3>
+          <h3>{title}</h3>
         </StyledLink>
 
         <p>{date}</p>
