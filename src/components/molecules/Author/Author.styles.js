@@ -37,11 +37,11 @@ export const Describe = styled.div`
 `;
 
 export const About = styled.div`
-  padding-bottom: 1em;
+  padding: 0 1em 1em 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 `;
 
-export const Socials = styled.div`
+/* export const Socials = styled.div`
   padding-top: 1em;
 
   a {
@@ -62,3 +62,4 @@ export const Socials = styled.div`
     margin-left: 0;
   }
 `;
+ */

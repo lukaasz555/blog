@@ -1,6 +1,7 @@
 import React from "react";
 import { Wrapper } from "./About.styles";
 import picture from "../../img/man.jpg";
+import Socials from "components/atoms/Socials/Socials";
 
 const About = (about) => {
   const data = about;
@@ -35,6 +36,7 @@ const About = (about) => {
           eum corrupti veniam illum ad!
         </p>
       </div>
+      <Socials />
     </Wrapper>
   );
 };

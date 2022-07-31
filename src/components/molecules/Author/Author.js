@@ -7,7 +7,8 @@ import {
   faTwitter,
   faLinkedinIn,
 } from "@fortawesome/free-brands-svg-icons";
-import { Wrapper, Describe, About, Socials } from "./Author.styles";
+import { Wrapper, Describe, About } from "./Author.styles";
+import Socials from "components/atoms/Socials/Socials";
 
 const Author = () => {
   return (
@@ -21,7 +22,7 @@ const Author = () => {
           <h3>John Doe</h3>
           <p>blog author</p>
         </About>
-        <Socials>
+        {/*  <Socials>
           <a href="https://www.linkedin.com/in/%C5%82ukasz-zegar/">
             <FontAwesomeIcon icon={faLinkedinIn} />
           </a>
@@ -33,7 +34,8 @@ const Author = () => {
           <a href="https://instagram.com/lukaasz555">
             <FontAwesomeIcon icon={faInstagram} />
           </a>
-        </Socials>
+        </Socials> */}
+        <Socials />
       </Describe>
     </Wrapper>
   );
