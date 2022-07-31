@@ -1,46 +1,38 @@
 import React from "react";
 import { Wrapper } from "./About.styles";
-import img from "img/man.jpg";
+import picture from "../../img/man.jpg";
 
-const About = () => {
+const About = (about) => {
+  const data = about;
+  console.log(data);
+
   return (
     <Wrapper>
-      <img src={img} alt="John Doe - blog author" />
+      <img src={picture} alt="" />
       <div>
         <h3>I am John Doe</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, odio
-          temporibus sunt impedit, reiciendis ea numquam quae eveniet doloribus
-          ratione ipsam eum nisi fuga accusamus reprehenderit, odit facilis
-          ullam beatae. Lorem ipsum dolor, sit amet consectetur adipisicing
-          elit. Labore perspiciatis, consectetur doloribus, dicta quaerat,
-          voluptates explicabo nulla dolores quidem repudiandae repellendus
-          eveniet numquam?
-        </p>
-        <p>
-          Placeat maxime ratione rerum. Similique, fuga labore. Lorem, ipsum
-          dolor sit amet consectetur adipisicing elit. Autem iusto recusandae ex
-          eum, quod ipsam aliquam adipisci porro soluta, quis animi sapiente
-          corporis laborum alias labore saepe! Sit, consequuntur a! Lorem ipsum,
-          dolor sit amet consectetur adipisicing elit. Eius ullam sed rerum
-          fugiat vel cupiditate ab vero maiores. Hic debitis eos officia ipsum
-          nulla rerum sequi non dolorem suscipit libero.
-        </p>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo officiis
-          iste minima autem, maiores, officia repellendus eveniet commodi
-          expedita voluptatibus in qui quas voluptate, hic quidem non placeat
-          perferendis nostrum. Lorem, ipsum dolor sit amet consectetur
-          adipisicing elit. Tenetur optio molestiae vitae? Fuga corporis hic
-          laboriosam pariatur ad voluptatem eos nostrum. Incidunt dicta fuga
-          debitis assumenda laudantium fugiat consectetur.
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio,
+          totam hic molestiae atque ipsum odio quaerat deleniti odit tempore
+          culpa dolores magnam! Expedita omnis nisi atque suscipit aut,
+          molestiae voluptate.
         </p>
 
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-          minima culpa rerum ipsum obcaecati quibusdam nisi aperiam voluptas
-          adipisci cupiditate doloremque, eligendi eum enim fuga, quod incidunt
-          odit consectetur dolorum.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ratione
+          error minima modi repellendus delectus adipisci necessitatibus
+          dolores, quis cumque! Nesciunt provident iusto perspiciatis voluptatum
+          illo sit minus repellendus aspernatur. Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Itaque atque voluptatibus mollitia
+          quibusdam illo error non est optio! Vel voluptatibus voluptatem, atque
+          cumque nulla cupiditate velit inventore beatae eum? Maiores.
+        </p>
+
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem aperiam
+          cupiditate reprehenderit veritatis hic, consectetur consequuntur, aut
+          obcaecati temporibus, id molestias consequatur optio dolore adipisci
+          eum corrupti veniam illum ad!
         </p>
       </div>
     </Wrapper>
