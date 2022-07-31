@@ -25,18 +25,6 @@ const Root = () => {
   const URL = "https://graphql.datocms.com/";
   const query = `
 {
-  allAbouts {
-    id
-    header
-    part1
-    part2
-    part3
-    adminImg {
-      id
-      url
-    }
-  }
-
   allArticles {
     id
     img {
@@ -57,7 +45,6 @@ const Root = () => {
   const [error, setError] = useState("");
   //let isFiltered = false;
   const [filteredArts, setFilteredArts] = useState([]);
-  const [about, setAbout] = useState({});
 
   useEffect(() => {
     axios
@@ -71,7 +58,6 @@ const Root = () => {
         }
       )
       .then(({ data: { data } }) => {
-        setAbout(data.allAbouts);
         const arts = data.allArticles.map((art) => ({
           id: +art.id,
           key: art.id,
@@ -84,7 +70,6 @@ const Root = () => {
           source: art.source,
         }));
         setArticles(arts.sort((a, b) => b.id - a.id));
-        console.log(about);
       })
       .catch(() => {
         setError("Przepraszamy, nie udało się załadować artykułów.");
@@ -118,7 +103,7 @@ const Root = () => {
                     />
                   }
                 />
-                <Route path="/about" element={<About about={about} />} />
+                <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route
                   path="/category"

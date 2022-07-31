@@ -3,10 +3,7 @@ import { Wrapper } from "./About.styles";
 import picture from "../../img/man.jpg";
 import Socials from "components/atoms/Socials/Socials";
 
-const About = (about) => {
-  const data = about;
-  console.log(data);
-
+const About = () => {
   return (
     <Wrapper>
       <img src={picture} alt="" />
