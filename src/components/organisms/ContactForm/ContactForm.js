@@ -86,7 +86,13 @@ const ContactForm = () => {
 
   return (
     <Wrapper>
-      <Input id="name" type="text" value={form.name} onChange={handleInput} />
+      <Input
+        placeholder="name"
+        id="name"
+        type="text"
+        value={form.name}
+        onChange={handleInput}
+      />
       <Input id="email" type="text" value={form.email} onChange={handleInput} />
       <Textarea id="message" value={form.message} onChange={handleInput} />
 
