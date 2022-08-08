@@ -1,6 +1,6 @@
 import React from "react";
-import Button from "components/atoms/Button/Button";
 import Author from "components/molecules/Author/Author";
+import Button from "components/atoms/Button/Button";
 import { NavLink } from "react-router-dom";
 import {
   Wrapper,
