@@ -58,9 +58,13 @@ const Wrapper = styled.div`
 
 const TestInput = ({ id, type, onChange, value }) => (
   <Wrapper>
-    <input id={id} type={type} value={value} required onChange={onChange}>
-      {/*       {value} */}
-    </input>
+    <input
+      id={id}
+      type={type}
+      value={value}
+      required
+      onChange={onChange}
+    ></input>
     <label htmlFor={id}>{id}</label>
     <span>
       <span></span>
