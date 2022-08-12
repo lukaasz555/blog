@@ -6,7 +6,7 @@ import Input from "components/atoms/Input/Input";
 import Textarea from "components/atoms/Textarea/Textarea";
 import Button from "components/atoms/Button/Button";
 
-const serviceId = "service_83oanad";
+const serviceId = "service_lv8m6tm";
 const templateId = "JDblog";
 const userId = `${process.env.REACT_APP_EMAILJS_KEY}`;
 
@@ -67,7 +67,10 @@ const ContactForm = () => {
         console.log(res);
         setEmailSent(true);
       })
-      .catch((err) => setError(err));
+      .catch((err) => {
+        console.log(err);
+        setError(err);
+      });
   };
 
   const handleSubmit = async (e) => {
@@ -75,7 +78,7 @@ const ContactForm = () => {
     const errorInfo = validate(form);
     if (errorInfo) {
       setError(errorInfo);
-      console.log(errorInfo);
+      //console.log(errorInfo);
       return;
     } else {
       sendMail(form);
@@ -96,7 +99,7 @@ const ContactForm = () => {
       <Input id="email" type="text" value={form.email} onChange={handleInput} />
       <Textarea id="message" value={form.message} onChange={handleInput} />
 
-      {error ? <p className="errorInfo">{error}</p> : ""}
+      {error ? <p>{error}</p> : null}
 
       {!isEmailSent ? (
         <SendButton onClick={handleSubmit} />

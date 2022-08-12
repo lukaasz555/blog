@@ -10,7 +10,7 @@ export const Wrapper = styled.form`
     width: 560px;
   }
 
-  .errorInfo {
+  p {
     color: rgba(255, 0, 0, 0.7);
     font-weight: bold;
   }
