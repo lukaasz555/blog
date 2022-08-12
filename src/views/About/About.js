@@ -1,40 +1,79 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Wrapper } from "./About.styles";
 import picture from "../../img/man.jpg";
 import Socials from "components/atoms/Socials/Socials";
+import axios from "axios";
+import Loader from "components/atoms/Loader/Loader";
+
+const URL = "https://graphql.datocms.com/";
+const query = `{
+allAbouts {
+  header
+  part1
+  part2
+  part3
+  adminImg {
+    id
+    url
+  }
+}}
+`;
 
 const About = () => {
+  const [author, setAuthor] = useState({
+    header: "",
+    part1: "",
+    part2: "",
+    part3: "",
+    img: "",
+  });
+
+  useEffect(() => {
+    axios
+      .post(
+        URL,
+        { query },
+        {
+          headers: {
+            authorization: `Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}`,
+          },
+        }
+      )
+      .then(({ data: { data } }) => {
+        const author = data.allAbouts;
+        console.log(author);
+        console.log(author[0].header);
+        setAuthor({
+          header: author[0].header,
+          part1: author[0].part1,
+          part2: author[0].part2,
+          part3: author[0].part3,
+          img: author[0].adminImg.url,
+        });
+        //console.log(author);
+      })
+      .catch((err) => console.log(err));
+  }, []);
   return (
-    <Wrapper>
-      <img src={picture} alt="" />
-      <div>
-        <h3>I am John Doe</h3>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio,
-          totam hic molestiae atque ipsum odio quaerat deleniti odit tempore
-          culpa dolores magnam! Expedita omnis nisi atque suscipit aut,
-          molestiae voluptate.
-        </p>
+    <>
+      {author.header == "" ? (
+        <Loader />
+      ) : (
+        <Wrapper>
+          <img src={author.img} alt="" />
 
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ratione
-          error minima modi repellendus delectus adipisci necessitatibus
-          dolores, quis cumque! Nesciunt provident iusto perspiciatis voluptatum
-          illo sit minus repellendus aspernatur. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Itaque atque voluptatibus mollitia
-          quibusdam illo error non est optio! Vel voluptatibus voluptatem, atque
-          cumque nulla cupiditate velit inventore beatae eum? Maiores.
-        </p>
+          <div>
+            <h3>{author.header}</h3>
+            <p>{author.part1}</p>
 
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem aperiam
-          cupiditate reprehenderit veritatis hic, consectetur consequuntur, aut
-          obcaecati temporibus, id molestias consequatur optio dolore adipisci
-          eum corrupti veniam illum ad!
-        </p>
-      </div>
-      <Socials />
-    </Wrapper>
+            <p>{author.part2}</p>
+
+            <p>{author.part3}</p>
+          </div>
+          <Socials />
+        </Wrapper>
+      )}
+    </>
   );
 };
 
