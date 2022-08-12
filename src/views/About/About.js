@@ -57,7 +57,6 @@ const About = () => {
           ig: author[0].ig,
           img: author[0].adminImg.url,
         });
-        console.log(author);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -72,9 +71,7 @@ const About = () => {
           <div>
             <h3>{author.header}</h3>
             <p>{author.part1}</p>
-
             <p>{author.part2}</p>
-
             <p>{author.part3}</p>
           </div>
           <Socials

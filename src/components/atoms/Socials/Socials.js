@@ -29,32 +29,26 @@ const Wrapper = styled.div`
   }
 `;
 
-const Socials = (linked = null, twitter = null, insta = null) => {
-  console.log(insta);
+const Socials = (props) => {
   return (
     <Wrapper>
-      {typeof linked == undefined
-        ? console.log("LINKED - undefined")
-        : console.log(typeof linked)}
-      {/* 
-      {JSON.stringify(linked).includes("http") ? null : (
-        <a href={Object.values(linked)}>
+      {JSON.stringify(props.linked) === "" ? null : (
+        <a href={props.linked}>
           <FontAwesomeIcon icon={faLinkedinIn} />
         </a>
       )}
 
-     {twitter == {} ? null : (
-        <a href={Object.values(twitter)}>
+      {JSON.stringify(props.twitter) === "" ? null : (
+        <a href={props.twitter}>
           <FontAwesomeIcon icon={faTwitter} />
         </a>
-      )} 
+      )}
 
-      {JSON.stringify(insta).includes("http") ? null : (
-        <a href={Object.values(insta)}>
+      {JSON.stringify(props.insta) === "" ? null : (
+        <a href={props.insta}>
           <FontAwesomeIcon icon={faInstagram} />
         </a>
       )}
-      */}
     </Wrapper>
   );
 };
