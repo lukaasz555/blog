@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faInstagram,
@@ -6,6 +6,7 @@ import {
   faLinkedinIn,
 } from "@fortawesome/free-brands-svg-icons";
 import styled from "styled-components";
+import Loader from "../Loader/Loader";
 
 const Wrapper = styled.div`
   padding-top: 1em;
@@ -28,20 +29,34 @@ const Wrapper = styled.div`
   }
 `;
 
-const Socials = () => (
-  <Wrapper>
-    <a href="https://www.linkedin.com/in/%C5%82ukasz-zegar/">
-      <FontAwesomeIcon icon={faLinkedinIn} />
-    </a>
+const Socials = (linked = null, twitter = null, insta = null) => {
+  console.log(insta);
+  return (
+    <Wrapper>
+      {typeof linked == undefined
+        ? console.log("LINKED - undefined")
+        : console.log(typeof linked)}
+      {/* 
+      {JSON.stringify(linked).includes("http") ? null : (
+        <a href={Object.values(linked)}>
+          <FontAwesomeIcon icon={faLinkedinIn} />
+        </a>
+      )}
 
-    <a href="https://twitter.com/djuk_77">
-      <FontAwesomeIcon icon={faTwitter} />
-    </a>
+     {twitter == {} ? null : (
+        <a href={Object.values(twitter)}>
+          <FontAwesomeIcon icon={faTwitter} />
+        </a>
+      )} 
 
-    <a href="https://instagram.com/lukaasz555">
-      <FontAwesomeIcon icon={faInstagram} />
-    </a>
-  </Wrapper>
-);
+      {JSON.stringify(insta).includes("http") ? null : (
+        <a href={Object.values(insta)}>
+          <FontAwesomeIcon icon={faInstagram} />
+        </a>
+      )}
+      */}
+    </Wrapper>
+  );
+};
 
 export default Socials;

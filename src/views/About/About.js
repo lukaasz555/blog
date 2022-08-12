@@ -12,6 +12,9 @@ allAbouts {
   part1
   part2
   part3
+  linked
+  twitter
+  ig
   adminImg {
     id
     url
@@ -26,6 +29,9 @@ const About = () => {
     part2: "",
     part3: "",
     img: "",
+    linked: "",
+    twitter: "",
+    ig: "",
   });
 
   useEffect(() => {
@@ -41,26 +47,27 @@ const About = () => {
       )
       .then(({ data: { data } }) => {
         const author = data.allAbouts;
-        console.log(author);
-        console.log(author[0].header);
         setAuthor({
           header: author[0].header,
           part1: author[0].part1,
           part2: author[0].part2,
           part3: author[0].part3,
+          linked: author[0].linked,
+          twitter: author[0].twitter,
+          ig: author[0].ig,
           img: author[0].adminImg.url,
         });
-        //console.log(author);
+        console.log(author);
       })
       .catch((err) => console.log(err));
   }, []);
   return (
     <>
-      {author.header == "" ? (
+      {author.header === "" ? (
         <Loader />
       ) : (
         <Wrapper>
-          <img src={author.img} alt="" />
+          <img src={author.img} alt={author.header} />
 
           <div>
             <h3>{author.header}</h3>
@@ -70,7 +77,11 @@ const About = () => {
 
             <p>{author.part3}</p>
           </div>
-          <Socials />
+          <Socials
+            linked={author.linked}
+            twitter={author.twitter}
+            insta={author.ig}
+          />
         </Wrapper>
       )}
     </>
