@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext, Provider } from "react";
 import { ThemeProvider } from "styled-components";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { theme } from "assets/theme";
@@ -14,6 +14,12 @@ import DesktopNav from "components/molecules/DesktopNav/DesktopNav";
 import FullArticle from "../FullArticle/FullArticle";
 import axios from "axios";
 
+export const NavContext = React.createContext({
+  isOpen: false,
+  setOpen: () => {},
+  toggleMobileNav: () => {},
+});
+
 const Root = () => {
   // handle mobile-nav:
   const [isOpen, setOpen] = useState(false);
@@ -21,7 +27,7 @@ const Root = () => {
     setOpen(!isOpen);
   };
 
-  // getting data from DatoCMS:
+  // fetching data from CMS:
   const URL = "https://graphql.datocms.com/";
   const query = `
 {
@@ -43,7 +49,6 @@ const Root = () => {
 
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState("");
-  //let isFiltered = false;
   const [filteredArts, setFilteredArts] = useState([]);
 
   useEffect(() => {
@@ -83,13 +88,16 @@ const Root = () => {
           <GlobalStyle />
           <Wrapper>
             <StyledMain>
-              <Header
-                isOpen={isOpen}
-                setOpen={setOpen}
-                onClick={toggleMobileNav}
-              />
-              <MobileNav isOpen={isOpen} onClick={toggleMobileNav}></MobileNav>
-              <DesktopNav />
+              <NavContext.Provider
+                value={{
+                  isOpen,
+                  toggleMobileNav,
+                }}
+              >
+                <Header />
+                <MobileNav />
+                <DesktopNav />
+              </NavContext.Provider>
               <Routes>
                 <Route
                   path="/"
@@ -98,7 +106,6 @@ const Root = () => {
                       articles={articles}
                       setArticles={setArticles}
                       error={error}
-                      //isFiltered={isFiltered}
                       filteredArts={filteredArts}
                     />
                   }
@@ -116,7 +123,6 @@ const Root = () => {
                     short,
                     category,
                     content,
-                    // img = null,
                     img,
                     date,
                     source,

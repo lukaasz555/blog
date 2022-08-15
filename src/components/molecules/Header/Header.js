@@ -1,19 +1,13 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Logo from "components/atoms/Logo/Logo";
 import HamburgerButton from "components/atoms/HamburgerButton/HamburgerButton";
 import { StyledHeader } from "./Header.styles";
 
-const Header = ({ isOpen, setOpen }) => (
+const Header = () => (
   <StyledHeader>
     <Logo />
-    <HamburgerButton isOpen={isOpen} setOpen={setOpen} />
+    <HamburgerButton />
   </StyledHeader>
 );
-
-Header.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  setOpen: PropTypes.func.isRequired,
-};
 
 export default Header;
