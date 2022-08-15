@@ -16,7 +16,8 @@ const Author = () => {
           <h3>John Doe</h3>
           <p>blog author</p>
         </About>
-        <Socials />
+
+        {/*         <Socials /> */}
       </Describe>
     </Wrapper>
   );

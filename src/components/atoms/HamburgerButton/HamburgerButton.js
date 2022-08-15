@@ -1,22 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StyledButton } from "./HamburgerButton.styles";
-import PropTypes from "prop-types";
+import { NavContext } from "views/Root/Root";
 
-const HamburgerButton = ({ isOpen, setOpen }) => {
+const HamburgerButton = () => {
+  const context = useContext(NavContext);
   return (
     <>
-      <StyledButton isOpen={isOpen} onClick={() => setOpen(!isOpen)}>
+      <StyledButton isOpen={context.isOpen} onClick={context.toggleMobileNav}>
         <div></div>
         <div></div>
         <div></div>
       </StyledButton>
     </>
   );
-};
-
-HamburgerButton.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  setOpen: PropTypes.func.isRequired,
 };
 
 export default HamburgerButton;
