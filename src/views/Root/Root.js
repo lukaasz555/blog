@@ -14,7 +14,9 @@ import DesktopNav from 'components/molecules/DesktopNav/DesktopNav';
 import Loader from 'components/atoms/Loader/Loader';
 //import FullArticle from "../FullArticle/FullArticle";
 import axios from 'axios';
+const LazyAbout = React.lazy(() => import('../About/About'));
 const LazyFullArt = React.lazy(() => import('../FullArticle/FullArticle'));
+const LazyContact = React.lazy(() => import('../Contact/Contact'));
 
 export const NavContext = React.createContext({
 	isOpen: false,
@@ -111,8 +113,24 @@ const Root = () => {
 										/>
 									}
 								/>
-								<Route path='/about' element={<About />} />
-								<Route path='/contact' element={<Contact />} />
+								<Route
+									path='/about'
+									element={
+										<React.Suspense fallback={<Loader />}>
+											<LazyAbout />
+										</React.Suspense>
+									}
+								/>
+
+								<Route
+									path='/contact'
+									element={
+										<React.Suspense fallback={<Loader />}>
+											<LazyContact />
+										</React.Suspense>
+									}
+								/>
+
 								<Route
 									path='/category'
 									element={<Category articles={articles} />}
