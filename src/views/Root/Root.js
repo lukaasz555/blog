@@ -3,16 +3,13 @@ import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { theme } from 'assets/theme';
 import GlobalStyle from 'assets/styles/GlobalStyles';
+import { Wrapper, StyledMain } from 'views/Root/Root.styles';
 import Header from 'components/molecules/Header/Header';
 import MobileNav from 'components/molecules/MobileNav/MobileNav';
-import { Wrapper, StyledMain } from 'views/Root/Root.styles';
-import About from '../About/About';
-import Contact from '../Contact/Contact';
 import Blog from '../Blog/Blog';
 import Category from '../Category/Category';
 import DesktopNav from 'components/molecules/DesktopNav/DesktopNav';
 import Loader from 'components/atoms/Loader/Loader';
-//import FullArticle from "../FullArticle/FullArticle";
 import axios from 'axios';
 const LazyAbout = React.lazy(() => import('../About/About'));
 const LazyFullArt = React.lazy(() => import('../FullArticle/FullArticle'));
@@ -25,13 +22,11 @@ export const NavContext = React.createContext({
 });
 
 const Root = () => {
-	// handle mobile-nav:
 	const [isOpen, setOpen] = useState(false);
 	const toggleMobileNav = () => {
 		setOpen(!isOpen);
 	};
 
-	// fetching data from CMS:
 	const URL = 'https://graphql.datocms.com/';
 	const query = `
 {
